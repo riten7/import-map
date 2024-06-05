@@ -1,13 +1,21 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { LPWidget } from "storybook-components";
+import { LPGridLayout } from "storybook-components";
+
+const gridProps = {
+  layouts: { lg: [
+    { i: "blue-eyes-dragon", x: 0, y: 0, w: 4, h: 2},
+    { i: "dark-magician", x: 1, y: 0, w: 4, h: 2 },
+    { i: "kuriboh", x: 2, y: 0, w: 4, h: 2 },
+    { i: "spell-caster", x: 3, y: 0, w: 4, h: 2 },
+    { i: "summoned-skull", x: 4, y: 0, w: 4, h: 2 },
+    { i: "summoned-banger", x: 5, y: 0, w: 4, h: 2 },
+  ] }
+};
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  console.log({ LPWidget });
+  console.log({ LPGridLayout });
 
   return (
     <>
@@ -20,17 +28,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <LPGridLayout label="test" gridProps={gridProps} />
     </>
   )
 }

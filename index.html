@@ -9,14 +9,30 @@
     <script type="importmap" defer>
       {
         "imports": {
+          "react": "https://cdn.skypack.dev/react@18",
+          "react-dom": "https://cdn.skypack.dev/react-dom@18",
           "storybook-components": "https://storybook-chart.netlify.app/dist/components.es.js"
         }
       }
     </script>
+
+    <script>
+      // Define a global process variable to mimic Node.js process
+      window.process = {
+        env: { NODE_ENV: 'production' }
+      };
+    </script>
+
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      import React from 'https://cdn.skypack.dev/react@18.3.1';
+      import ReactDOM from 'https://cdn.skypack.dev/react-dom@18.3.1';
+      window.React = React;
+      window.ReactDOM = ReactDOM;
+    </script>
     <script type="module">
       import { LPWidget } from "storybook-components";
       console.log(LPWidget);
